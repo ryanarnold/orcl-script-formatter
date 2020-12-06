@@ -1,7 +1,9 @@
 
 // Formats the script in the text area
 function formatScript() {
-  let scriptText = document.getElementById('txtScript').value;
+  // let scriptText = document.getElementById('editor').innerHTML;
+  let editor = ace.edit("editor");
+  let scriptText = editor.getValue();
   let scriptLines = scriptText.split("\n");
 
   let formattedText = '';
@@ -32,8 +34,10 @@ function formatScript() {
     formattedText += formattedLine + "\n";
   }
 
-  document.getElementById('txtScript').value = formattedText;
-  btnSubmit.blur();
+  // document.getElementById('editor').innherHTML = formattedText;
+  // let editor = ace.edit("editor");
+  editor.setValue(formattedText);
+  editor.blur();
 }
 
 // Bind click event
