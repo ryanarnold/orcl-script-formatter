@@ -16,3 +16,11 @@ $ flask run
 ```
 
 The site can now be viewed in the URL shown.
+
+# Deployment
+
+To deploy changes to heroku, execute the following:
+
+```
+$ git push heroku main
+```
