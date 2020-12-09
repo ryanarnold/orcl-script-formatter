@@ -9,6 +9,8 @@ function formatScript() {
   let formattedText = '';
   let indentLength = 0;
 
+  let isElse = false;
+
   for (const line of scriptLines) {
     let trimmedLine = line.trim();
     console.log("INFO: Processing line: " + trimmedLine);
@@ -19,6 +21,13 @@ function formatScript() {
     } else if (trimmedLine.startsWith("end-for")) {
       indentLength -= 4;
     }
+
+    // Temporarily unindent for "else"
+    if (trimmedLine.startsWith("else")) {
+      isElse = true;
+      indentLength -= 4;
+    }
+
     // Create the indent for this line
     let indent = ' '.repeat(indentLength);
 
@@ -32,6 +41,12 @@ function formatScript() {
     // Apply indent to current line
     let formattedLine = indent + trimmedLine;
     formattedText += formattedLine + "\n";
+
+    // Temporarily unindent for "else"
+    if (isElse) {
+      indentLength += 4;
+      isElse = false;
+    }
   }
 
   // document.getElementById('editor').innherHTML = formattedText;
