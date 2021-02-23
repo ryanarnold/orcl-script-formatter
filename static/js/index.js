@@ -56,7 +56,7 @@ function formatScript() {
   editor.setValue(formattedText);
   // editor.blur();
   editor.focus();
-  editor.clearSelection();
+  // editor.clearSelection();
 }
 
 // Bind click event
