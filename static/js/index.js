@@ -49,10 +49,14 @@ function formatScript() {
     }
   }
 
+  formattedText = formattedText.slice(0, -1);
+
   // document.getElementById('editor').innherHTML = formattedText;
   // let editor = ace.edit("editor");
   editor.setValue(formattedText);
-  editor.blur();
+  // editor.blur();
+  editor.focus();
+  editor.clearSelection();
 }
 
 // Bind click event
